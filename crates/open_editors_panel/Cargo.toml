@@ -1,0 +1,18 @@
+[package]
+name = "open_editors_panel"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+anyhow.workspace = true
+
+editor.workspace = true
+gpui = { path = "../gpui" }
+workspace = { path = "../workspace" }
+ui = { path = "../ui" }
+settings = { path = "../settings" }
+project = { path = "../project" }

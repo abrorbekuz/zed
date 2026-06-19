@@ -51,6 +51,7 @@ use markdown::{Markdown, MarkdownElement, MarkdownFont, MarkdownStyle};
 use migrate::{MigrationBanner, MigrationEvent, MigrationNotification, MigrationType};
 use migrator::migrate_keymap;
 use onboarding::multibuffer_hint::MultibufferHint;
+use open_editors_panel::OpenEditorsPanel;
 pub use open_listener::*;
 use outline_panel::OutlinePanel;
 use paths::{
@@ -743,7 +744,9 @@ fn show_software_emulation_warning_if_needed(
 fn initialize_panels(window: &mut Window, cx: &mut Context<Workspace>) -> Task<anyhow::Result<()>> {
     cx.spawn_in(window, async move |workspace_handle, cx| {
         let project_panel = ProjectPanel::load(workspace_handle.clone(), cx.clone());
+
         let outline_panel = OutlinePanel::load(workspace_handle.clone(), cx.clone());
+        let open_editors_panel = OpenEditorsPanel::load(workspace_handle.clone(), cx.clone());
         let terminal_panel = TerminalPanel::load(workspace_handle.clone(), cx.clone());
         let git_panel = GitPanel::load(workspace_handle.clone(), cx.clone());
         let channels_panel =
@@ -767,6 +770,7 @@ fn initialize_panels(window: &mut Window, cx: &mut Context<Workspace>) -> Task<a
 
         futures::join!(
             add_panel_when_ready(project_panel, workspace_handle.clone(), cx.clone()),
+            add_panel_when_ready(open_editors_panel, workspace_handle.clone(), cx.clone()),
             add_panel_when_ready(outline_panel, workspace_handle.clone(), cx.clone()),
             add_panel_when_ready(terminal_panel, workspace_handle.clone(), cx.clone()),
             add_panel_when_ready(git_panel, workspace_handle.clone(), cx.clone()),
@@ -1154,6 +1158,7 @@ fn register_actions(
                 workspace.toggle_panel_focus::<ProjectPanel>(window, cx);
             },
         )
+
         .register_action(
             |workspace: &mut Workspace,
              _: &outline_panel::ToggleFocus,
@@ -5340,6 +5345,7 @@ mod tests {
                 "panel",
                 "picker",
                 "project_panel",
+                "open_editors_panel",
                 "project_search",
                 "project_symbols",
                 "projects",

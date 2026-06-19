@@ -903,6 +903,7 @@
     "git_status": true,
     // Amount of indentation for nested items.
     "indent_size": 20,
+
     // Whether to reveal it in the outline panel automatically,
     // when a corresponding outline entry becomes active.
     // Gitignored entries are never auto revealed.
@@ -921,6 +922,7 @@
       //    "never"
       "show": "always",
     },
+
     // Scrollbar-related settings
     "scrollbar": {
       // When to show the scrollbar in the project panel.
@@ -941,6 +943,12 @@
     // Default depth to expand outline items in the current file.
     // Set to 0 to collapse all items that have children, 1 or higher to collapse items at that depth or deeper.
     "expand_outlines_with_depth": 100,
+  },
+  "open_editors_panel": {
+    // Default width of the open editors panel.
+    "default_width": 300,
+    // Where to dock the open editors panel. Can be 'left' or 'right'.
+    "dock": "right",
   },
   "collaboration_panel": {
     // Whether to show the collaboration panel button in the status bar.

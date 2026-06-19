@@ -157,6 +157,7 @@ members = [
     "crates/project",
     "crates/project_benchmarks",
     "crates/project_panel",
+    "crates/open_editors_panel",
     "crates/project_symbols",
     "crates/prompt_store",
     "crates/proto",
@@ -416,6 +417,7 @@ prettier = { path = "crates/prettier" }
 settings_profile_selector = { path = "crates/settings_profile_selector" }
 project = { path = "crates/project" }
 project_panel = { path = "crates/project_panel" }
+open_editors_panel = { path = "crates/open_editors_panel" }
 project_symbols = { path = "crates/project_symbols" }
 prompt_store = { path = "crates/prompt_store" }
 proto = { path = "crates/proto" }

@@ -12284,6 +12284,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "open_editors_panel"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "editor",
+ "gpui",
+ "project",
+ "settings",
+ "ui",
+ "workspace",
+]
+
+[[package]]
 name = "open_path_prompt"
 version = "0.1.0"
 dependencies = [
@@ -22992,6 +23005,7 @@ dependencies = [
  "node_runtime",
  "notifications",
  "onboarding",
+ "open_editors_panel",
  "outline",
  "outline_panel",
  "parking_lot",

@@ -176,6 +176,7 @@ impl VsCodeSettings {
             agent_servers: None,
             audio: None,
             auto_update: None,
+            open_editors_panel: None,
             base_keymap: Some(BaseKeymapContent::VSCode),
             calls: None,
             collaboration_panel: None,
@@ -203,6 +204,7 @@ impl VsCodeSettings {
             node: self.node_binary_settings(),
 
             outline_panel: self.outline_panel_settings_content(),
+
             preview_tabs: self.preview_tabs_settings_content(),
             project: self.project_settings_content(),
             project_panel: self.project_panel_settings_content(),

@@ -208,6 +208,7 @@ pub struct SettingsContent {
     pub language_models: Option<AllLanguageModelSettingsContent>,
 
     pub outline_panel: Option<OutlinePanelSettingsContent>,
+    pub open_editors_panel: Option<OpenEditorsPanelSettingsContent>,
 
     pub project_panel: Option<ProjectPanelSettingsContent>,
 
@@ -983,6 +984,12 @@ pub enum HourFormat {
     #[default]
     Hour12,
     Hour24,
+}
+
+#[derive(Clone, Debug, Default, PartialEq, Serialize, Deserialize, JsonSchema, MergeFrom)]
+pub struct OpenEditorsPanelSettingsContent {
+    pub default_width: Option<f32>,
+    pub dock: Option<DockSide>,
 }
 
 #[with_fallible_options]
